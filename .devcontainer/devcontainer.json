@@ -1,0 +1,7 @@
+{
+  "name": "ClipForge Studio",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "forwardPorts": [8080],
+  "postCreateCommand": "echo 'ClipForge جاهز للتشغيل: npx serve -l 8080'",
+  "customizations": {"vscode": {"extensions": ["ritwickdey.LiveServer"]}}
+}
