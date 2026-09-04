@@ -1,55 +1,11 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClipForge — محرر فيديو</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="topbar">
-    <div class="brand"><span class="brand-mark">▶</span><span>ClipForge</span><small>محرر فيديو بالمتصفح</small></div>
-    <div class="top-actions"><span class="privacy">● يعمل محليًا على جهازك</span><button id="exportBtn" class="primary">تصدير الفيديو</button></div>
-  </header>
-
-  <main class="app-shell">
-    <section class="workspace">
-      <div class="stage-wrap">
-        <div id="emptyState" class="empty-state">
-          <div class="upload-icon">↥</div><h2>ابدأ بفيديو جديد</h2><p>اسحب ملف فيديو إلى هنا أو اختره من جهازك</p>
-          <label class="primary upload-label">اختيار فيديو<input id="fileInput" type="file" accept="video/*" hidden></label>
-          <small>MP4 · WebM · MOV</small>
-        </div>
-        <div id="videoStage" class="video-stage hidden">
-          <video id="video" playsinline></video><canvas id="overlayCanvas"></canvas>
-          <div class="stage-controls"><button id="playBtn" class="round">▶</button><span id="timeLabel">00:00 / 00:00</span><button id="muteBtn">🔊</button></div>
-        </div>
-      </div>
-      <div class="timeline-panel">
-        <div class="timeline-head"><strong>المسار الزمني</strong><span id="clipName">لم يتم اختيار ملف</span></div>
-        <div class="track"><div class="track-fill" id="trackFill"></div><input id="progress" type="range" min="0" max="100" value="0" aria-label="تقدم الفيديو"></div>
-        <div class="range-row"><span>البداية <b id="startLabel">00:00</b></span><input id="startRange" type="range" min="0" max="100" value="0"><span>النهاية <b id="endLabel">00:00</b></span><input id="endRange" type="range" min="0" max="100" value="100"></div>
-      </div>
-    </section>
-
-    <aside class="sidebar">
-      <div class="sidebar-title"><h3>أدوات التحرير</h3><span class="badge">نسخة تجريبية</span></div>
-      <div class="tool-tabs"><button class="tab active" data-tab="adjust">الضبط</button><button class="tab" data-tab="text">النص</button><button class="tab" data-tab="audio">الصوت</button></div>
-      <div id="adjustPanel" class="panel">
-        <label>السرعة <output id="speedValue">1×</output><input id="speedRange" type="range" min="0.25" max="2" step="0.25" value="1"></label>
-        <label>السطوع <output id="brightnessValue">100%</output><input id="brightnessRange" type="range" min="50" max="150" value="100"></label>
-        <label>التباين <output id="contrastValue">100%</output><input id="contrastRange" type="range" min="50" max="150" value="100"></label>
-        <div class="field"><span>الفلاتر</span><div class="filter-grid"><button data-filter="none" class="filter active">أصلي</button><button data-filter="grayscale" class="filter">أبيض وأسود</button><button data-filter="sepia" class="filter">دافئ</button><button data-filter="saturate" class="filter">حيوي</button></div></div>
-      </div>
-      <div id="textPanel" class="panel hidden"><label>النص الظاهر<input id="textInput" type="text" placeholder="اكتب عنوانًا للفيديو"></label><label>حجم النص<input id="textSize" type="range" min="18" max="72" value="34"></label><label class="check"><input id="textShadow" type="checkbox" checked> ظل للنص</label></div>
-      <div id="audioPanel" class="panel hidden"><div class="info-box">يمكنك التحكم في مستوى الصوت أثناء المعاينة. سيتم تضمين الصوت الأصلي عند التصدير.</div><label>مستوى الصوت <output id="volumeValue">100%</output><input id="volumeRange" type="range" min="0" max="1" step="0.05" value="1"></label></div>
-      <div class="tips"><strong>اختصارات سريعة</strong><p><kbd>Space</kbd> تشغيل / إيقاف</p><p><kbd>←</kbd> <kbd>→</kbd> تحريك الإطار</p></div>
-    </aside>
-  </main>
-  <div id="toast" class="toast"></div>
-  <script src="app.js"></script>
-</body>
-</html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ClipForge Studio — محرر فيديو</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
+<body><header class="topbar"><div class="brand"><span class="brand-mark">▶</span><b>ClipForge</b><small>STUDIO</small></div><div class="project"><span id="projectName">مشروع جديد</span><button id="renameBtn" class="ghost">✎</button></div><div class="top-actions"><span class="privacy">● يعمل محليًا</span><button id="undoBtn" class="ghost" title="تراجع">↶</button><button id="redoBtn" class="ghost" title="إعادة">↷</button><button id="exportBtn" class="primary">تصدير الفيديو</button></div></header>
+<main class="app-shell"><section class="workspace"><div class="stage-wrap"><div id="emptyState" class="empty-state"><div class="upload-icon">↥</div><h2>ابدأ مشروعك</h2><p>اسحب فيديو أو صورة إلى هنا، أو اختر ملفًا من جهازك</p><label class="primary upload-label">اختيار ملفات<input id="fileInput" type="file" accept="video/*,image/*" multiple hidden></label><small>MP4 · WebM · MOV · JPG · PNG</small></div><div id="videoStage" class="video-stage hidden"><video id="video" playsinline></video><canvas id="overlayCanvas"></canvas><div class="stage-controls"><button id="playBtn" class="round">▶</button><span id="timeLabel">00:00 / 00:00</span><input id="stageProgress" type="range" min="0" max="100" value="0"><button id="muteBtn">🔊</button><button id="fullscreenBtn">⛶</button></div></div></div>
+<div class="timeline-panel"><div class="timeline-head"><strong>المسار الزمني</strong><span id="clipName">لم يتم اختيار ملف</span></div><div class="timeline-tools"><button id="splitBtn">✂ تقسيم عند المؤشر</button><button id="deleteBtn" class="danger">حذف الجزء المحدد</button><button id="markInBtn">⌜ تحديد بداية</button><button id="markOutBtn">⌟ تحديد نهاية</button></div><div id="segments" class="segments"><div class="segment active"><span>المقطع 1</span><i></i></div></div><div class="track"><div id="selectionFill" class="selection-fill"></div><div id="playhead" class="playhead"></div><input id="progress" type="range" min="0" max="100" value="0"></div><div class="range-row"><span>من <b id="startLabel">00:00</b></span><input id="startRange" type="range" min="0" max="100" value="0"><span>إلى <b id="endLabel">00:00</b></span><input id="endRange" type="range" min="0" max="100" value="100"></div></div></section>
+<aside class="sidebar"><div class="sidebar-title"><h3>أدوات التحرير</h3><span class="badge">PRO</span></div><div class="tool-tabs"><button class="tab active" data-tab="edit">تحرير</button><button class="tab" data-tab="layers">طبقات</button><button class="tab" data-tab="audio">صوت</button><button class="tab" data-tab="more">المزيد</button></div>
+<div id="editPanel" class="panel"><div class="section-title">قص وتحويل</div><div class="button-grid"><button id="cropBtn">▣ Crop / اقتصاص</button><button id="rotateBtn">↻ تدوير 90°</button><button id="flipHBtn">↔ قلب أفقي</button><button id="flipVBtn">↕ قلب رأسي</button></div><label>نسبة الأبعاد<select id="ratioSelect"><option value="free">حر</option><option value="16:9">16:9 — يوتيوب</option><option value="9:16">9:16 — ريلز</option><option value="1:1">1:1 — مربع</option><option value="4:5">4:5 — إنستغرام</option></select></label><div class="section-title">تحسين الصورة</div><label>السرعة <output id="speedValue">1×</output><input id="speedRange" type="range" min="0.25" max="3" step="0.25" value="1"></label><label>السطوع <output id="brightnessValue">100%</output><input id="brightnessRange" type="range" min="50" max="150" value="100"></label><label>التباين <output id="contrastValue">100%</output><input id="contrastRange" type="range" min="50" max="150" value="100"></label><label>التشبع <output id="saturationValue">100%</output><input id="saturationRange" type="range" min="0" max="200" value="100"></label><div class="field"><span>الفلاتر</span><div class="filter-grid"><button data-filter="none" class="filter active">أصلي</button><button data-filter="grayscale" class="filter">أبيض وأسود</button><button data-filter="sepia" class="filter">سينمائي</button><button data-filter="vivid" class="filter">حيوي</button><button data-filter="cool" class="filter">بارد</button><button data-filter="vintage" class="filter">قديم</button></div></div></div>
+<div id="layersPanel" class="panel hidden"><div class="section-title">أضف طبقة فوق الفيديو</div><div class="layer-actions"><button id="addTextBtn">T نص</button><button id="addEmojiBtn">☀ ملصق</button><button id="addShapeBtn">● شكل</button><button id="addThemeBtn">✦ ثيم</button></div><div id="layersList" class="layers-list"><div class="empty-layers">لم تتم إضافة طبقات بعد</div></div><div id="layerControls" class="hidden"><label>المحتوى<input id="layerTextInput" type="text" placeholder="اكتب هنا"></label><label>الحجم <output id="layerSizeValue">42</output><input id="layerSize" type="range" min="16" max="110" value="42"></label><label>الشفافية <output id="layerOpacityValue">100%</output><input id="layerOpacity" type="range" min="0" max="1" step=".05" value="1"></label><label>اللون<input id="layerColor" type="color" value="#ffffff"></label><button id="removeLayerBtn" class="wide danger">حذف الطبقة</button></div></div>
+<div id="audioPanel" class="panel hidden"><div class="section-title">الصوت</div><label>مستوى الصوت <output id="volumeValue">100%</output><input id="volumeRange" type="range" min="0" max="1" step=".05" value="1"></label><label class="check"><input id="muteOriginal" type="checkbox"> كتم الصوت الأصلي</label><div class="info-box">رفع موسيقى وصوت إضافي سيكون متاحًا قريبًا. الصوت الأصلي سيُضمّن في التصدير.</div></div>
+<div id="morePanel" class="panel hidden"><div class="section-title">أدوات إضافية</div><div class="button-grid"><button id="resetBtn">↺ إعادة ضبط</button><button id="downloadFrameBtn">▣ حفظ الإطار</button><button id="pipBtn">▱ صورة داخل صورة</button><button id="helpBtn">؟ دليل سريع</button></div><div class="info-box">يدعم ClipForge العمل دون إنترنت بعد تحميل الصفحة، ولا يرفع ملفاتك إلى أي خادم.</div></div>
+<div class="tips"><strong>اختصارات</strong><p><kbd>Space</kbd> تشغيل</p><p><kbd>S</kbd> تقسيم</p><p><kbd>Del</kbd> حذف</p><p><kbd>←</kbd><kbd>→</kbd> إطار</p></div></aside></main><div id="toast" class="toast"></div><script src="app.js"></script></body></html>
